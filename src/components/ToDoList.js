@@ -13,14 +13,21 @@ export default function ToDoList() {
     setDescription("");
     setDate("");
   };
-
+  const handleDeleteToDo = (index) => {
+    const result = [...todos];
+    result.splice(index, 1);
+    setTodos(result);
+  };
   return (
     <div>
       <h1>My ToDos</h1>
       <input
         placeholder="Description"
         value={description}
-        onChange={(e) => setDescription(e.target.value)}
+        onChange={(event) => {
+          console.log(event);
+          setDescription(event.target.value);
+        }}
       />
       <input
         type="date"
@@ -43,6 +50,16 @@ export default function ToDoList() {
             <tr key={index}>
               <td>{todo.description}</td>
               <td>{todo.date}</td>
+              <td>
+                <button
+                  onClick={(event) => {
+                    console.log(event);
+                    handleDeleteToDo(index);
+                  }}
+                >
+                  Delete
+                </button>
+              </td>
             </tr>
           ))}
         </tbody>

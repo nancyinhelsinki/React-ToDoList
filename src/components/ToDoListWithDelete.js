@@ -60,6 +60,9 @@ export default function ToDoListWithDelete() {
                   Delete
                 </button>
               </td>
+              <td>
+                <button onClick={(event) => {}}>Done</button>
+              </td>
             </tr>
           ))}
         </tbody>
